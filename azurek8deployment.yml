@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: optrendapi2
+  labels:
+    app: optrendapi2
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: optrendapi2
+  template:
+    metadata:
+      labels:
+        name: optrendapi2
+        app: optrendapi2
+    spec:
+      securityContext:
+        runAsUser: 1000
+      hostname: optrendapi2
+      containers:
+      - name: optrendapi2
+        image: hcecontainersregistery.azurecr.io/optrendapi2:v1
+        imagePullPolicy: IfNotPresent
+        resources:
+            limits:
+              cpu: 2
+              memory: 4096Mi
+            requests:
+              cpu: 1
+              memory: 2048Mi
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: optrendapi2
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: optrendapi2
