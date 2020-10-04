@@ -16,7 +16,7 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 
 def init():
     global model
-    modelfile = 'iptrendmodel.json'
+    modelfile = 'tensorflowmodel.json'
     json_file = open(modelfile, 'r')
     loaded_model_json = json_file.read()
     json_file.close()
@@ -24,7 +24,7 @@ def init():
     # load model and weights
     with CustomObjectScope({'GlorotUniform': glorot_uniform()}):
         model = model_from_json(loaded_model_json)
-        model.load_weights("iptrendmodel.h5")
+        model.load_weights("tensorflowmodel.h5")
         print("Model Loaded...")
         print (model.summary())
 
@@ -40,16 +40,11 @@ def predictiptrend():
     return str(res)
 
 def PrepInput(ContractType):
-   data=pd.read_csv('vwModelCleanData.csv')
-   qry="Contract_Type==" + str(ContractType)
-   data.query(qry, inplace = True)
-   OPTrendMean=data["OPTrend"].mean()
-   IPTrendMean=data["IPTrend"].mean()
-   IPTrendValMean=data["IPTrendVal"].mean()
-   OPTrendValMean=data["OPTrendVal"].mean()
-   APC_FS_LAB=data['APC_FS_LAB'].value_counts().sort_values(ascending=False).argmax()
-   APC_FS_PHY=data['APC_FS_PHY'].value_counts().sort_values(ascending=False).argmax()
-   df= pd.DataFrame({'OPTrend': OPTrendMean, 'OPTrendVal': OPTrendValMean, 'IPTrendVa':IPTrendValMean,'APC_FS_LAB':APC_FS_LAB,'APC_FS_PHY':APC_FS_PHY}, index=[0])
+   #Prep pandas dataframe to hold independent values required to predict.
+   IndependentValue1=234
+   IndependentValue2=245
+   IndependentValue3=210
+   df= pd.DataFrame({'IndependentVariable1': IndependentValue1, 'IndependentVariable2': IndependentValue2, 'IndependentVariable1':IndependentValue3}, index=[0])
    return df
 if __name__ == '__main__':
     init()
