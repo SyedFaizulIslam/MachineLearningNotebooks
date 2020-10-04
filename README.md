@@ -1,5 +1,5 @@
 # MachineLearningNotebooks
-This repository contains content that I share in my workshops with softare developers who are interested in getting started with Machine Learning.
+This repository contains content that I share in my workshops with softare developers who are interested in getting started with Machine Learning.Many of of my notebook code I have copied from various datascience community members and portals specially from Kaggle community.A big thank you to all those who share their code just for pure joy of coding and spreading happiness.
 
 Beside creating Machine Learning jupyter notebooks this repo also contains deplyment code the machine learning model files using flask api.
 
