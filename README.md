@@ -5,4 +5,4 @@ Beside creating Machine Learning jupyter notebooks this repo also contains deply
 
 app.py: This file shows an example of loading machine learning model .pkl file as a REST api
 
-app_tensorflowmodel.py: This file shows an example of tensorflow/keras model as a REST api.
+app_tensorflowmodel.py: This file shows an example of tensorflow/keras model as a REST api. User may need to tweak some lines of code like providing the correct model file name and as well code for preparing the independent values.
