@@ -4,4 +4,5 @@ This repository contains content that I share in my workshops with softare devel
 Beside creating Machine Learning jupyter notebooks this repo also contains deplyment code the machine learning model files using flask api.
 
 app.py: This file shows an example of loading machine learning model .pkl file as a REST api
-app_tensorflow.py: This file shows an example of tensorflow/keras model as an api.
+
+app_tensorflowmodel.py: This file shows an example of tensorflow/keras model as a REST api.
